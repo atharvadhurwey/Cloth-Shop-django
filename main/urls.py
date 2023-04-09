@@ -47,9 +47,12 @@ urlpatterns = [
     path('my-addressbook', views.my_addressbook, name='my-addressbook'),
     path('add-address', views.save_address, name='add-address'),
     path('activate-address', views.activate_address, name='activate-address'),
-    path('update-address/<int:id>',views.update_address, name='update-address'),
-    path('edit-profile',views.edit_profile, name='edit-profile'),
+    path('update-address/<int:id>', views.update_address, name='update-address'),
+    path('edit-profile', views.edit_profile, name='edit-profile'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
